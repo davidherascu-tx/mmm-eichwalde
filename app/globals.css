@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Die Farben stammen direkt aus dem Firmenlogo:
+ * Blau #1860b4, Rot #e41818, Gelb #fccc24.
+ */
+@theme {
+  --color-brand-50: #eef4fc;
+  --color-brand-100: #d8e6f8;
+  --color-brand-200: #b0ccf1;
+  --color-brand-300: #7dabe6;
+  --color-brand-400: #4784d3;
+  --color-brand-500: #1860b4;
+  --color-brand-600: #14539d;
+  --color-brand-700: #114582;
+  --color-brand-800: #0f386a;
+  --color-brand-900: #0d2c53;
+  --color-brand-950: #081c36;
+
+  --color-signal-50: #fdeeee;
+  --color-signal-100: #fbd9d9;
+  --color-signal-200: #f7b3b3;
+  --color-signal-300: #f18080;
+  --color-signal-400: #ec4a4a;
+  --color-signal-500: #e41818;
+  --color-signal-600: #c41313;
+  --color-signal-700: #9f1010;
+  --color-signal-800: #7d0d0d;
+  --color-signal-900: #5e0a0a;
+
+  --color-sun-50: #fffaeb;
+  --color-sun-100: #fff2c9;
+  --color-sun-200: #ffe694;
+  --color-sun-300: #fdd858;
+  --color-sun-400: #fccc24;
+  --color-sun-500: #eab308;
+  --color-sun-600: #c28f05;
+  --color-sun-700: #966d08;
+  --color-sun-800: #7a570f;
+  --color-sun-900: #684912;
+
+  /* Neutrale Grautöne mit einem Hauch Blau, damit nichts schmutzig wirkt */
+  --color-stone-50: #f7f8fa;
+  --color-stone-100: #eef1f5;
+  --color-stone-200: #dde2ea;
+  --color-stone-300: #c2cad6;
+  --color-stone-400: #8d99aa;
+  --color-stone-500: #5f6b7d;
+  --color-stone-600: #45505f;
+  --color-stone-700: #333c48;
+  --color-stone-800: #222932;
+  --color-stone-900: #151a21;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), var(--font-inter), ui-sans-serif, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-stone-800);
+}
+
+/* Überschriften laufen im Deutschen schnell aus dem Raster – enger setzen. */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--color-sun-300);
+  color: var(--color-stone-900);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-sun-400);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/*
+ * Fließtext für Impressum, Datenschutz und Leistungsbeschreibungen. Als
+ * einfaches CSS statt Utility-Klassen, damit die Rechtsseiten lesbar bleiben.
+ */
+.rich-text {
+  color: var(--color-stone-700);
+  line-height: 1.75;
+}
+
+.rich-text > * + * {
+  margin-top: 1.15rem;
+}
+
+.rich-text h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--color-stone-900);
+  margin-top: 2.75rem;
+}
+
+.rich-text h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-stone-900);
+  margin-top: 2rem;
+}
+
+.rich-text h2 + *,
+.rich-text h3 + * {
+  margin-top: 0.75rem;
+}
+
+.rich-text ul,
+.rich-text ol {
+  padding-left: 1.25rem;
+}
+
+.rich-text ul {
+  list-style: disc;
+}
+
+.rich-text ol {
+  list-style: decimal;
+}
+
+.rich-text li + li {
+  margin-top: 0.4rem;
+}
+
+.rich-text a {
+  color: var(--color-brand-600);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rich-text a:hover {
+  color: var(--color-brand-800);
+}
+
+.rich-text strong {
+  color: var(--color-stone-900);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

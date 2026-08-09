@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Maler-Meister Meyer">
+  <rect width="64" height="64" rx="10" fill="#ffffff"/>
+  <!-- Die drei Schwünge des Firmenlogos in Blau, Rot und Gelb -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M6 34C14 16 32 10 44 16" stroke="#1860b4" stroke-width="5"/>
+    <path d="M9 43C17 27 33 21 45 26" stroke="#e41818" stroke-width="5"/>
+    <path d="M12 52C20 38 34 32 46 36" stroke="#fccc24" stroke-width="5"/>
+  </g>
+  <!-- MMM im Oval -->
+  <ellipse cx="41" cy="40" rx="19" ry="13" fill="#ffffff" stroke="#1860b4" stroke-width="2.5"/>
+  <path d="M30 46V34l5.5 8 5.5-8 5.5 8 5.5-8v12" fill="none" stroke="#1860b4" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
