@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "../components/container";
 import { PageHeader } from "../components/page-header";
-import { Platzhalter, RechtsHinweis } from "../components/platzhalter";
 import { site } from "../lib/site";
 import { seitenMetadata } from "../lib/seo";
 
@@ -24,8 +23,6 @@ export default function Impressum() {
 
       <section className="py-16 sm:py-20">
         <Container size="narrow">
-          <RechtsHinweis />
-
           <div className="rich-text">
             <h2>Angaben gemäß § 5 DDG</h2>
             <p>
@@ -53,15 +50,9 @@ export default function Impressum() {
             <h2>Umsatzsteuer-Identifikationsnummer</h2>
             <p>
               Umsatzsteuer-Identifikationsnummer gemäß § 27 a
-              Umsatzsteuergesetz:{" "}
-              <Platzhalter>USt-IdNr. eintragen</Platzhalter>
-            </p>
-            <p>
-              Alternativ, falls keine USt-IdNr. vorliegt:{" "}
-              <Platzhalter>
-                Steuernummer eintragen oder diesen Abschnitt durch den Hinweis
-                auf die Kleinunternehmerregelung nach § 19 UStG ersetzen
-              </Platzhalter>
+              Umsatzsteuergesetz:
+              <br />
+              {site.vatId}
             </p>
 
             <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
@@ -71,12 +62,20 @@ export default function Impressum() {
               <strong>Verliehen in:</strong> Bundesrepublik Deutschland
             </p>
             <p>
-              <strong>Zuständige Kammer:</strong>{" "}
-              <Platzhalter>
-                zuständige Handwerkskammer und deren Anschrift eintragen – für
-                den Landkreis Dahme-Spreewald in der Regel die Handwerkskammer
-                Cottbus; bitte vor Veröffentlichung bestätigen
-              </Platzhalter>
+              <strong>Zuständige Kammer:</strong> Handwerkskammer Cottbus,
+              Altmarkt 17, 03046 Cottbus (
+              <a
+                href="https://www.hwk-cottbus.de"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                hwk-cottbus.de
+              </a>
+              ) – zuständig für den Landkreis Dahme-Spreewald und damit für die
+              Eintragung in die Handwerksrolle.
+            </p>
+            <p>
+              <strong>Registergericht:</strong> Amtsgericht Cottbus
             </p>
             <p>
               <strong>Es gelten folgende berufsrechtliche Regelungen:</strong>{" "}
@@ -97,21 +96,6 @@ export default function Impressum() {
               Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:
               <br />
               {site.owner}, {site.street}, {site.postalCode} {site.city}
-            </p>
-
-            <h2>Verbraucherstreitbeilegung</h2>
-            <p>
-              Wir sind nicht bereit und nicht verpflichtet, an
-              Streitbeilegungsverfahren vor einer
-              Verbraucherschlichtungsstelle teilzunehmen.
-            </p>
-            <p>
-              <Platzhalter>
-                Bitte prüfen, ob diese Aussage gewünscht ist – eine Teilnahme
-                kann freiwillig erklärt werden. Ebenfalls prüfen, ob zum
-                Zeitpunkt der Veröffentlichung noch ein Hinweis auf eine
-                EU-Streitbeilegungsplattform erforderlich ist.
-              </Platzhalter>
             </p>
 
             <h2>Haftung für Inhalte</h2>
@@ -171,14 +155,37 @@ export default function Impressum() {
 
             <h2>Bildnachweise</h2>
             <p>
-              Alle Fotos auf dieser Website zeigen von uns ausgeführte Arbeiten
-              und wurden von uns selbst aufgenommen.{" "}
-              <Platzhalter>
-                Bitte bestätigen. Falls einzelne Aufnahmen von Dritten stammen
-                oder Personen erkennbar sind, hier Urheber und Einwilligungen
-                ergänzen.
-              </Platzhalter>
+              Die Fotos der ausgeführten Arbeiten sowie die Abbildungen der
+              Zertifikate stammen aus dem Bestand des Betriebs. Die Bildrechte
+              liegen bei {site.owner}.
             </p>
+            <p>
+              Quellenangaben für die verwendeten Logos und Grafiken Dritter:
+            </p>
+            <ul>
+              <li>
+                Brillux GmbH &amp; Co. KG –{" "}
+                <a
+                  href="https://www.brillux.de"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  www.brillux.de
+                </a>
+              </li>
+              <li>
+                Landesinnungsverband des Maler- und Lackiererhandwerks
+                Berlin-Brandenburg –{" "}
+                <a
+                  href="https://www.farbe-bb.de"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  www.farbe-bb.de
+                </a>{" "}
+                (vormals malerverband-bb.de)
+              </li>
+            </ul>
           </div>
         </Container>
       </section>

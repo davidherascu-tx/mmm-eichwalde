@@ -32,6 +32,7 @@ export function LocalBusinessJsonLd() {
         url: site.url,
         telephone: "+4917653069633",
         email: site.email,
+        vatID: site.vatId,
         foundingDate: String(site.foundedYear),
         logo: `${site.url}/mmm_logo.png`,
         image: `${site.url}/mmm_logo.png`,

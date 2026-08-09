@@ -51,9 +51,10 @@ export async function submitContactForm(
 
   // ---------------------------------------------------------------------------
   // TODO(Versand einrichten): Hier wird die Nachricht noch NICHT verschickt.
-  // Vor dem Livegang muss an dieser Stelle ein Mailversand angebunden werden
-  // (z. B. Resend, Postmark, Brevo oder SMTP über nodemailer). Zugangsdaten
-  // gehören in Umgebungsvariablen, nicht in den Quellcode.
+  // Als Versanddienstleister ist Resend gesetzt – so steht es auch in der
+  // Datenschutzerklärung (Ziffer 5). Vor dem Livegang muss die Anbindung hier
+  // erfolgen; der API-Key gehört in eine Umgebungsvariable, nicht in den
+  // Quellcode.
   //
   //   const resend = new Resend(process.env.RESEND_API_KEY)
   //   await resend.emails.send({

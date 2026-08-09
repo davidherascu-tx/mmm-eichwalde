@@ -16,6 +16,8 @@ export const site = {
   phone: "0176 / 530 69 633",
   phoneHref: "tel:+4917653069633",
   email: "lars-meyer4@gmx.de",
+  /** USt-IdNr. nach § 27a UStG – Pflichtangabe im Impressum. */
+  vatId: "DE138578185",
   foundedYear: 1977,
   /**
    * Basis für metadataBase, Canonical-URLs, Sitemap und robots.txt.

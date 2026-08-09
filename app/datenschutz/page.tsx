@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "../components/container";
 import { PageHeader } from "../components/page-header";
-import { Platzhalter, RechtsHinweis } from "../components/platzhalter";
 import { site } from "../lib/site";
 import { seitenMetadata } from "../lib/seo";
 
@@ -25,8 +24,6 @@ export default function Datenschutz() {
 
       <section className="py-16 sm:py-20">
         <Container size="narrow">
-          <RechtsHinweis />
-
           <div className="rich-text">
             <h2>1. Verantwortlicher</h2>
             <p>
@@ -47,11 +44,13 @@ export default function Datenschutz() {
               E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>
             </p>
             <p>
-              Ein Datenschutzbeauftragter ist nach § 38 BDSG nicht bestellt, da
-              die gesetzlichen Voraussetzungen hierfür nicht vorliegen.{" "}
-              <Platzhalter>
-                Bitte prüfen, ob das für Ihren Betrieb zutrifft
-              </Platzhalter>
+              Ein Datenschutzbeauftragter ist nicht bestellt. Die
+              Voraussetzungen des Art. 37 DSGVO und des § 38 BDSG liegen bei
+              uns nicht vor – in unserem Betrieb sind nicht mindestens 20
+              Personen ständig mit der automatisierten Verarbeitung
+              personenbezogener Daten beschäftigt. Ansprechpartner für alle
+              Fragen zum Datenschutz ist {site.owner} unter den oben genannten
+              Kontaktdaten.
             </p>
 
             <h2>2. Allgemeine Hinweise</h2>
@@ -66,27 +65,45 @@ export default function Datenschutz() {
 
             <h2>3. Hosting</h2>
             <p>
-              Diese Website wird bei einem externen Dienstleister gehostet:{" "}
-              <Platzhalter>
-                Name und Anschrift des Hosting-Anbieters eintragen
-              </Platzhalter>
-              . Die personenbezogenen Daten, die auf dieser Website erfasst
-              werden, werden auf den Servern des Hosters gespeichert.
+              Diese Website wird von Netlify ausgeliefert:
+              <br />
+              Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, USA
+            </p>
+            <p>
+              Alle personenbezogenen Daten, die beim Aufruf dieser Website
+              anfallen – insbesondere die unter Ziffer 4 genannten Zugriffsdaten
+              sowie die über das Kontaktformular übermittelten Angaben –, werden
+              auf der Infrastruktur von Netlify verarbeitet.
+            </p>
+            <p>
+              Der Quellcode dieser Website wird bei GitHub, Inc., 88 Colin P.
+              Kelly Jr. Street, San Francisco, CA 94107, USA (Unternehmen der
+              Microsoft Corporation) verwaltet; von dort wird die Website
+              automatisiert gebaut und an Netlify übergeben. Die Auslieferung
+              der Website an Ihren Browser erfolgt ausschließlich über Netlify;
+              beim Besuch der Website werden keine Daten an GitHub übermittelt.
             </p>
             <p>
               Der Einsatz des Hosters erfolgt im Interesse einer sicheren,
               schnellen und effizienten Bereitstellung unseres Onlineangebots
               durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).
               Mit dem Anbieter haben wir einen Vertrag über die
-              Auftragsverarbeitung nach Art. 28 DSGVO geschlossen.{" "}
-              <Platzhalter>
-                Abschluss des AV-Vertrags vor dem Livegang sicherstellen
-              </Platzhalter>
+              Auftragsverarbeitung nach Art. 28 DSGVO geschlossen.
+            </p>
+            <p>
+              <strong>Datenübermittlung in die USA:</strong> Netlify verarbeitet
+              Daten auch auf Servern in den USA. Netlify, Inc. ist nach dem
+              EU-U.S. Data Privacy Framework zertifiziert, für das die
+              EU-Kommission mit Beschluss vom 10. Juli 2023 ein angemessenes
+              Datenschutzniveau festgestellt hat. Ergänzend stützt sich die
+              Übermittlung auf die Standardvertragsklauseln der EU-Kommission
+              (Durchführungsbeschluss (EU) 2021/914).
             </p>
 
             <h2>4. Server-Log-Dateien</h2>
             <p>
-              Der Provider dieser Seiten erhebt und speichert automatisch
+              Der Hoster dieser Seiten (siehe Ziffer 3) erhebt und speichert
+              automatisch
               Informationen in sogenannten Server-Log-Dateien, die Ihr Browser
               automatisch an uns übermittelt. Dies sind:
             </p>
@@ -130,6 +147,22 @@ export default function Datenschutz() {
               Nachricht. Ohne diese Angaben können wir Ihre Anfrage nicht
               beantworten. Weitere Angaben sind freiwillig.
             </p>
+            <p>
+              Die Übermittlung des Formulars wird auf der Infrastruktur unseres
+              Hosters verarbeitet (siehe Ziffer 3). Für die Zustellung der
+              Nachricht an unser E-Mail-Postfach setzen wir den
+              Versanddienstleister Resend ein:
+              <br />
+              Plus Five Five, Inc. („Resend“), 2261 Market Street #5039, San
+              Francisco, CA 94114, USA
+            </p>
+            <p>
+              Resend verarbeitet die von Ihnen übermittelten Angaben
+              ausschließlich weisungsgebunden zum Transport der E-Mail. Grundlage
+              ist ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO, der die
+              Standardvertragsklauseln der EU-Kommission für die Übermittlung in
+              die USA einbezieht.
+            </p>
 
             <h2>6. Anfrage per E-Mail oder Telefon</h2>
             <p>
@@ -158,13 +191,10 @@ export default function Datenschutz() {
               Social-Media-Plugins oder Werbenetzwerke eingebunden. Ein
               Cookie-Banner ist daher nicht erforderlich.
             </p>
-            <p>
-              <Platzhalter>
-                Diese Aussage gilt nur solange, wie keine weiteren Dienste
-                (z. B. Analyse-Tools, Kartendienste, Chat-Widgets) eingebunden
-                werden. Bei Erweiterungen muss dieser Abschnitt angepasst werden.
-              </Platzhalter>
-            </p>
+            {/* Diese Aussage gilt nur, solange keine weiteren Dienste
+                (Analyse-Tools, eingebettete Karten, Chat-Widgets, Netlify
+                Split Testing) hinzukommen. Bei jeder Erweiterung muss dieser
+                Abschnitt neu bewertet werden. */}
 
             <h2>9. Schriftarten</h2>
             <p>
@@ -239,12 +269,27 @@ export default function Datenschutz() {
               oder des Orts des mutmaßlichen Verstoßes. Für uns zuständig ist:
             </p>
             <p>
-              <Platzhalter>
-                Zuständige Aufsichtsbehörde vor Veröffentlichung prüfen und
-                Anschrift aktuell eintragen – für Brandenburg ist dies die
-                Landesbeauftragte für den Datenschutz und für das Recht auf
-                Akteneinsicht Brandenburg
-              </Platzhalter>
+              Die Landesbeauftragte für den Datenschutz und für das Recht auf
+              Akteneinsicht Brandenburg
+              <br />
+              Stahnsdorfer Damm 77
+              <br />
+              14532 Kleinmachnow
+              <br />
+              Telefon: 033203 356-0
+              <br />
+              E-Mail:{" "}
+              <a href="mailto:poststelle@lda.brandenburg.de">
+                poststelle@lda.brandenburg.de
+              </a>
+              <br />
+              <a
+                href="https://www.lda.brandenburg.de"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                www.lda.brandenburg.de
+              </a>
             </p>
 
             <h2>14. Aktualität dieser Erklärung</h2>

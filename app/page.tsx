@@ -181,13 +181,15 @@ export default function Startseite() {
                 key={eintrag.src}
                 className="flex flex-col gap-5 border-t-4 border-brand-600 bg-stone-50 p-6 sm:flex-row sm:items-center sm:gap-7 sm:p-8"
               >
+                {/* self-start: im Spalten-Layout würde das Logo sonst durch
+                    align-items: stretch auf volle Breite gezogen. */}
                 <Image
                   src={eintrag.src}
                   alt={eintrag.alt}
                   width={eintrag.width}
                   height={eintrag.height}
                   sizes="180px"
-                  className="h-20 w-auto shrink-0 sm:h-24"
+                  className="h-20 w-auto shrink-0 self-start sm:h-24 sm:self-auto"
                 />
                 {/* min-w-0: sonst sprengen lange Wörter wie
                     "Innungsfachbetrieb" die Flex-Spalte auf schmalen Displays. */}
