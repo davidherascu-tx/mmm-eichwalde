@@ -3,7 +3,7 @@ import { Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "./components/site-header";
 import { SiteFooter } from "./components/site-footer";
-import { LocalBusinessJsonLd } from "./lib/structured-data";
+import { LocalBusinessJsonLd, WebSiteJsonLd } from "./lib/structured-data";
 import { site } from "./lib/site";
 
 const inter = Inter({
@@ -55,6 +55,10 @@ export const metadata: Metadata = {
   },
   category: "Handwerk",
   formatDetection: { telephone: true, address: true },
+  // Bestätigt die Inhaberschaft in der Google Search Console (Methode „HTML-Tag“).
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export default function RootLayout({
@@ -81,6 +85,7 @@ export default function RootLayout({
         </main>
         <SiteFooter />
         <LocalBusinessJsonLd />
+        <WebSiteJsonLd />
       </body>
     </html>
   );

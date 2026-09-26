@@ -111,6 +111,12 @@ const kategorien: Category[] = [
     anzahl: 3,
     text: "Belastbare Beschichtungen für Keller, Garage und Werkstatt.",
   },
+  {
+    slug: "weitere-arbeiten",
+    label: "Weitere Arbeiten",
+    anzahl: 101,
+    text: "Eine Auswahl weiterer Projekte aus unserem Arbeitsalltag.",
+  },
 ];
 
 /**

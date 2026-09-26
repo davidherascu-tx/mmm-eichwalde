@@ -13,7 +13,7 @@ export function generateStaticParams() {
   return referenzKategorien.map((kategorie) => ({ kategorie: kategorie.slug }));
 }
 
-// Nur die zehn bekannten Alben existieren – alles andere ist eine 404.
+// Nur die bekannten Alben existieren – alles andere ist eine 404.
 export const dynamicParams = false;
 
 const findeKategorie = (slug: string) =>

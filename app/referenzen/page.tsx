@@ -4,13 +4,13 @@ import Link from "next/link";
 import { Container } from "../components/container";
 import { CtaSection } from "../components/cta-section";
 import { PageHeader } from "../components/page-header";
-import { albumDeckel } from "../lib/gallery";
+import { albumDeckel, referenzen } from "../lib/gallery";
 import { seitenMetadata } from "../lib/seo";
 
 export const metadata: Metadata = seitenMetadata({
   title: "Referenzen – unsere Arbeiten",
   description:
-    "Bilder unserer Arbeiten: Farbgestaltung, Tapezierarbeiten, Spachtel- und Lasurtechniken, Stuckarbeiten, Außenarbeiten und Fußbodenbeschichtungen.",
+    `${referenzen.length} Bilder unserer Arbeiten in Eichwalde und Umgebung: Farbgestaltung, Tapeten, Spachtel- und Lasurtechniken, Stuck, Fassaden und Böden.`,
   path: "/referenzen",
 });
 

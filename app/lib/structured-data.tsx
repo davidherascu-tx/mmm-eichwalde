@@ -35,7 +35,12 @@ export function LocalBusinessJsonLd() {
         vatID: site.vatId,
         foundingDate: String(site.foundedYear),
         logo: `${site.url}/mmm_logo.png`,
-        image: `${site.url}/mmm_logo.png`,
+        // Google bevorzugt für lokale Einträge echte Fotos gegenüber dem Logo.
+        image: [
+          `${site.url}/images/slider/slider-1.webp`,
+          `${site.url}/images/slider/slider-5.webp`,
+          `${site.url}/mmm_logo.png`,
+        ],
         priceRange: "$$",
         currenciesAccepted: "EUR",
         address: {
@@ -66,6 +71,24 @@ export function LocalBusinessJsonLd() {
             },
           })),
         },
+      }}
+    />
+  );
+}
+
+/** Website-Name – Google zeigt ihn über dem Suchergebnis statt der Domain. */
+export function WebSiteJsonLd() {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${site.url}/#website`,
+        name: site.name,
+        alternateName: ["Maler-Meister Meyer", `Malermeister ${site.city}`],
+        url: site.url,
+        inLanguage: "de-DE",
+        publisher: { "@id": BETRIEB_ID },
       }}
     />
   );
