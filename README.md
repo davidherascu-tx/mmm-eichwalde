@@ -74,11 +74,12 @@ Dateihöhe. Bei gleicher CSS-Höhe wirkt es deshalb kleiner als die Header-Versi
    Handwerkskammer, Hosting-Anbieter und Aufsichtsbehörde. Alle Platzhalter
    ersetzen und den Hinweiskasten `<RechtsHinweis />` aus beiden Seiten
    entfernen. Die Texte sind ein Entwurf, keine Rechtsberatung.
-3. **Domain eintragen.** In der Hosting-Umgebung `NEXT_PUBLIC_SITE_URL` auf die
-   echte Domain setzen (siehe `.env.example`). Der Wert steuert `metadataBase`,
-   alle Canonical-URLs, die Sitemap, `robots.txt` und die absoluten Bild-URLs
-   der Social-Media-Vorschau. Ohne ihn zeigen alle diese Angaben auf den
-   Platzhalter `www.malermeister-eichwalde.de`.
+3. **Domain.** Die Website läuft unter `https://mmm-eichwalde.de` (ohne www);
+   dieser Wert steht als Standard in `app/lib/site.ts`. Er steuert
+   `metadataBase`, alle Canonical-URLs, die Sitemap, `robots.txt` und die
+   absoluten Bild-URLs der Social-Media-Vorschau und muss exakt der Property in
+   der Google Search Console entsprechen. `NEXT_PUBLIC_SITE_URL` überschreibt
+   ihn bei Bedarf (siehe `.env.example`).
 4. **Hausnummer im Logo prüfen.** Die Grafik `public/mmm_logo_white.png` nennt
    „Uhlandallee 24", die Website durchgängig „Uhlandallee 27". Solange die
    Logodatei nicht ersetzt ist, widersprechen sich Header und Impressum.

@@ -20,11 +20,12 @@ export const site = {
   vatId: "DE138578185",
   foundedYear: 1977,
   /**
-   * Basis für metadataBase, Canonical-URLs, Sitemap und robots.txt.
-   * In der Hosting-Umgebung `NEXT_PUBLIC_SITE_URL` auf die echte Domain setzen –
-   * der Wert hier ist nur ein Platzhalter für die lokale Entwicklung.
+   * Basis für metadataBase, Canonical-URLs, Sitemap und robots.txt. Muss exakt
+   * der Property in der Google Search Console entsprechen – ohne „www.“, denn
+   * www.mmm-eichwalde.de leitet auf die Domain ohne www weiter.
+   * `NEXT_PUBLIC_SITE_URL` überschreibt den Wert, z. B. für eine Vorschau-Umgebung.
    */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.malermeister-eichwalde.de",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mmm-eichwalde.de",
 } as const;
 
 /** Orte, in denen wir regelmäßig arbeiten – Grundlage für die lokale Suche. */
